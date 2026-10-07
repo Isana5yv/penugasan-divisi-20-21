@@ -1,12 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>penugasan</title>
-    <!--check isyana 20-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Saba Exploit</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    
+
+  <!-- LOADER -->
+  <div class="loader">
+    <img src="./assets/SEputih.png" alt="Logo Intro" class="loader-logo">
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <img src="./assets/SEputih.png" alt="Logo Saba Exploit" class="nav-logo-img">
+    </div>
+
+    <div class="nav-right">
+      Scroll to explore
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-image">
+      <img src="./assets/SEputih.png" alt="Logo Saba Exploit" class="nav-logo-img">
+      >
+    </div>
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        
+      </div>
+
+      <h1 class="hero-title">
+        <span>WELCOME</span>
+        <span class="outline">TO</span>
+        <span class="red-text">SABA EXPLOIT</span>
+      </h1>
+
+    </div>
+
+    <div class="scroll-indicator">
+      Scroll
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+
+    <div class="intro-text">
+
+      <p>
+        Every moment
+        <span>leaves</span>
+        a mark.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- STORY -->
+  <section class="story">
+
+    <div class="story-sticky">
+
+      <div class="story-image">
+        <img src="./assets/Untitled design.png"
+        >
+      </div>
+
+      <div class="story-title">
+        <div>THE</div>
+        <div>MEMORY</div>
+      </div>
+
+      <div class="story-number">
+        01 / 04
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+
+    <div class="marquee-inner">
+
+      <span>Tecno • Desain • Programming •</span>
+      <span>Cinematography • Photography • Tecno • </span>
+      <span>Programming • Cinematography • Desain • </span>
+
+    </div>
+
+  </div>
+
+  <!-- FINAL -->
+  <section class="final">
+
+    <div class="final-bg"></div>
+
+    <div class="final-content">
+
+      <div class="final-small">
+        End of the journey
+      </div>
+
+      <h2 class="final-title">
+        <div>WHO</div>
+        <div class="stroke">IS THE</div>
+        <div>NEXT?</div>
+      </h2>
+
+      <a href="#" class="final-button">
+        Enter
+        <span>→</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* =========================
+       HERO ANIMATION
+    ========================= */
+
+    gsap.to(".hero-image", {
+      scale: 1.25,
+      rotation: -3,
+      y: 100,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+    gsap.to(".hero-image img", {
+      scale: 1,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+    gsap.to(".hero-content", {
+      y: -180,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "70% top",
+        scrub: 1
+      }
+    });
+
+    gsap.to(".hero-grid", {
+      y: -200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+
+
+    /* =========================
+       INTRO TEXT
+    ========================= */
+
+    gsap.from(".intro-text p", {
+      y: 150,
+      opacity: 0,
+      scale: .8,
+      scrollTrigger: {
+        trigger: ".intro",
+        start: "top 80%",
+        end: "center center",
+        scrub: 1
+      }
+    });
+
+
+    /* =========================
+       STORY ANIMATION
+    ========================= */
+
+    const storyTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".story",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1
+      }
+    });
+
+    storyTimeline
+      .to(".story-image", {
+        scale: 1.15,
+        width: "80vw",
+        height: "90vh",
+        duration: 1
+      })
+
+      .to(".story-image img", {
+        scale: 1,
+        filter: "grayscale(0)",
+        duration: 1
+      }, "<")
+
+      .to(".story-title", {
+        scale: 1.3,
+        letterSpacing: "10px",
+        duration: 1
+      }, "<")
+
+      .to(".story-title", {
+        opacity: 0,
+        scale: 2,
+        duration: 1
+      })
+
+      .to(".story-image", {
+        scale: 1.5,
+        opacity: 0,
+        duration: 1
+      }, "<");
+
+
+    /* =========================
+       FINAL SECTION
+    ========================= */
+
+    gsap.from(".final-content", {
+      scale: .5,
+      opacity: 0,
+      rotate: -5,
+      scrollTrigger: {
+        trigger: ".final",
+        start: "top 80%",
+        end: "center center",
+        scrub: 1
+      }
+    });
+
+    gsap.to(".final-bg", {
+      rotation: 30,
+      scale: 1.3,
+      scrollTrigger: {
+        trigger: ".final",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 2
+      }
+    });
+
+
+    /* =========================
+       CUSTOM CURSOR
+    ========================= */
+
+    const cursor = document.querySelector(".cursor");
+
+    document.addEventListener("mousemove", (e) => {
+
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: .15,
+        ease: "power2.out"
+      });
+
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("mouseenter", () => {
+
+        gsap.to(cursor, {
+          width: 55,
+          height: 55,
+          background: "#ff4655",
+          duration: .25
+        });
+
+      });
+
+      link.addEventListener("mouseleave", () => {
+
+        gsap.to(cursor, {
+          width: 18,
+          height: 18,
+          background: "transparent",
+          duration: .25
+        });
+
+      });
+
+    });
+
+
+    /* =========================
+       PARALLAX MOUSE
+    ========================= */
+
+    document.addEventListener("mousemove", (e) => {
+
+      const x = (e.clientX / window.innerWidth - .5);
+      const y = (e.clientY / window.innerHeight - .5);
+
+      gsap.to(".hero-image", {
+        x: x * 20,
+        y: y * 20,
+        duration: 1,
+        overwrite: true
+      });
+
+    });
+
+  </script>
+
 </body>
 </html>
