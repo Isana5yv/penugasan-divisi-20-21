@@ -239,31 +239,137 @@
     }
 
    
-    .intro {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 10vw;
-      background: #111;
-    }
+    /* =========================
+   INTRO SECTION (Layout Kiri - Kanan)
+========================= */
 
-    .intro-text {
-      max-width: 1000px;
-      text-align: center;
-    }
+.intro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 5vw 8vw;
+  background: #111;
+}
 
-    .intro-text p {
-      font-family: "Anton", sans-serif;
-      font-size: clamp(45px, 7vw, 110px);
-      line-height: .95;
-      text-transform: uppercase;
-    }
+.intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 50px;
+}
 
-    .intro-text span {
-      color: #ff4655;
-    }
+/* Teks Biasa di Kiri */
+.intro-text {
+  flex: 1;
+  text-align: left; /* Rata kiri */
+  font-family: "Inter", sans-serif; /* Menggunakan font biasa/Inter */
+  font-size: clamp(24px, 3.5vw, 48px);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #ffffff;
+  display: inline-block;
+}
+
+/* Kursor Animasi Mengetik */
+.cursor-type {
+  font-weight: 300;
+  color: #ff4655;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+ /* =========================
+   INTRO SECTION (Modern & Smooth)
+========================= */
+
+.intro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%;
+  background: #080808;
+  overflow: hidden;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px;
+  gap: 60px;
+}
+
+/* Teks Kiri */
+.intro-text {
+  flex: 1.2;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(18px, 1.6vw, 24px); /* Ukuran teks lebih proporsional & rapi */
+  font-weight: 400;
+  line-height: 1.8; /* Jarak antar baris yang nyaman dibaca */
+  color: #e0e0e0;
+  position: relative;
+}
+
+.intro-text p {
+  display: inline;
+}
+
+/* Kursor Animasi Mengetik */
+.cursor-type {
+  font-weight: 300;
+  color: #ff4655;
+  margin-left: 2px;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Gambar Kanan */
+.intro-image {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-image img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Responsif untuk Layar HP / Tablet */
+@media (max-width: 900px) {
+  .intro-container {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+
+  .intro-text {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .intro-image img {
+    max-width: 250px;
+  }
+}
 
     /* =========================
        IMAGE STORY
