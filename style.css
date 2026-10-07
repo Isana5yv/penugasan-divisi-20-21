@@ -1,0 +1,520 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      background: #080808;
+      color: white;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ========================a=
+       LOADER
+    ========================= */
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #080808;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      animation: loaderOut 1s 1.4s forwards;
+    }
+
+    .loader-logo {
+      max-width: 250px;
+      height: auto;
+      display: block;
+      animation: loaderText 1.2s ease forwards;
+    }
+
+    @keyframes loaderText {
+      0% {
+        opacity: 0;
+        transform: scale(.7);
+      }
+
+      60% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes loaderOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 25px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mix-blend-mode: difference;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo-img {
+      width: 45px;          /* Atur lebar logo (sesuai selera) */
+      height: 45px;         /* Atur tinggi logo */
+      object-fit: cover;    /* Agar gambar tidak terdistorsi */
+      border-radius: 8px;   /* Opsional: memberi sedikit lengkungan sudut */
+      display: block;
+    }
+
+    .nav-right {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at center, rgba(255, 70, 85, .15), transparent 40%),
+        #080808;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: .12;
+      background-image:
+        linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+      background-size: 70px 70px;
+      transform: perspective(600px) rotateX(60deg) scale(2);
+      transform-origin: center bottom;
+    }
+
+    .hero-image {
+      position: absolute;
+      width: 48vw;
+      max-width: 700px;
+      height: 70vh;
+      right: 8%;
+      top: 15%;
+      overflow: hidden;
+      clip-path: polygon(
+        8% 0,
+        100% 0,
+        92% 100%,
+        0 100%
+      );
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8,8,8,.9),
+          transparent 50%,
+          rgba(255,70,85,.15)
+        );
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.8) contrast(1.2);
+      transform: scale(1.15);
+    }
+
+    .hero-content {
+      position: absolute;
+      left: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .small-title {
+      color: #ff4655;
+      font-size: 12px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: "Anton", sans-serif;
+      font-size: clamp(70px, 80vw, 180px);
+      line-height: .78;
+      letter-spacing: -6px;
+      text-transform: uppercase;
+    }
+
+    .hero-title .red-text {
+      color:#ff4655;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 2px white;
+      margin-left: 80px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      opacity: .6;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: white;
+      margin: 12px auto 0;
+      animation: scrollLine 1.5s infinite;
+    }
+
+    @keyframes scrollLine {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      51% {
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+   
+    .intro {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 10vw;
+      background: #111;
+    }
+
+    .intro-text {
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .intro-text p {
+      font-family: "Anton", sans-serif;
+      font-size: clamp(45px, 7vw, 110px);
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .intro-text span {
+      color: #ff4655;
+    }
+
+    /* =========================
+       IMAGE STORY
+    ========================= */
+
+    .story {
+      position: relative;
+      height: 200vh;
+      background: #080808;
+    }
+
+    .story-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .story-image {
+      position: absolute;
+      width: 55vw;
+      height: 75vh;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(.65);
+      overflow: hidden;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.3);
+      filter: grayscale(1);
+    }
+
+    .story-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #ff4655;
+      mix-blend-mode: multiply;
+      opacity: .5;
+    }
+
+    .story-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      white-space: nowrap;
+      font-family: "Anton", sans-serif;
+      font-size: clamp(80px, 15vw, 230px);
+      line-height: .75;
+      text-transform: uppercase;
+      mix-blend-mode: screen;
+    }
+
+    .story-title div:nth-child(2) {
+      margin-left: 15vw;
+      color: transparent;
+      -webkit-text-stroke: 2px white;
+    }
+
+    .story-number {
+      position: absolute;
+      right: 5%;
+      bottom: 10%;
+      font-size: 12px;
+      letter-spacing: 5px;
+      color: #ff4655;
+    }
+
+    /* =========================
+       MARQUEE
+    ========================= */
+
+    .marquee {
+      background: #ff4655;
+      color: #080808;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 25px 0;
+      transform: rotate(-2deg) scale(1.05);
+    }
+
+    .marquee-inner {
+      display: inline-flex;
+      animation: marquee 18s linear infinite;
+    }
+
+    .marquee span {
+      font-family: "Anton", sans-serif;
+      font-size: clamp(50px, 8vw, 120px);
+      padding-right: 40px;
+      text-transform: uppercase;
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* =========================
+       FINAL SECTION
+    ========================= */
+
+    .final {
+      height: 130vh;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255,70,85,.3),
+          transparent 45%
+        ),
+        #050505;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .final-bg {
+      position: absolute;
+      inset: -20%;
+      background:
+        repeating-linear-gradient(
+          120deg,
+          transparent 0,
+          transparent 40px,
+          rgba(255,255,255,.03) 41px
+        );
+      transform: rotate(10deg);
+    }
+
+    .final-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .final-small {
+      font-size: 11px;
+      letter-spacing: 8px;
+      color: #ff4655;
+      margin-bottom: 25px;
+    }
+
+    .final-title {
+      font-family: "Anton", sans-serif;
+      font-size: clamp(90px, 18vw, 300px);
+      line-height: .72;
+      text-transform: uppercase;
+    }
+
+    .final-title .stroke {
+      color: transparent;
+      -webkit-text-stroke: 2px white;
+    }
+
+    .final-button {
+      margin-top: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 35px;
+      border: 1px solid rgba(255,255,255,.5);
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      transition: .4s;
+    }
+
+    .final-button:hover {
+      background: #ff4655;
+      border-color: #ff4655;
+      color: #080808;
+      transform: scale(1.05);
+    }
+
+    /* =========================
+       CURSOR
+    ========================= */
+
+    .cursor {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1000;
+      transform: translate(-50%, -50%);
+      transition:
+        width .2s,
+        height .2s,
+        background .2s;
+      mix-blend-mode: difference;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+      nav {
+        padding: 20px;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .hero-image {
+        width: 80vw;
+        height: 55vh;
+        right: -15%;
+        top: 20%;
+        opacity: .6;
+      }
+
+      .hero-content {
+        left: 8%;
+        top: 55%;
+      }
+
+      .hero-title {
+        font-size: 22vw;
+        letter-spacing: -3px;
+      }
+
+      .hero-title .outline {
+        margin-left: 20px;
+      }
+
+      .story-image {
+        width: 85vw;
+        height: 60vh;
+      }
+
+      .story-title {
+        font-size: 23vw;
+      }
+
+      .cursor {
+        display: none;
+      }
+    }
