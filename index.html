@@ -42,7 +42,6 @@
 
     <div class="hero-image">
       <img src="./assets/SEputih.png" alt="Logo Saba Exploit" class="nav-logo-img">
-      >
     </div>
 
     <div class="hero-content">
@@ -68,17 +67,16 @@
 
   <!-- INTRO -->
   <section class="intro">
+    <div class="intro-container">
+      <div class="intro-text">
+        <p id="typed-text"></p>
+        <span class="cursor-type">|</span>
+      </div>
 
-    <div class="intro-text">
-
-      <p>
-        Every moment
-        <span>leaves</span>
-        a mark.
-      </p>
-
+      <div class="intro-image">
+        <img src="./assets/SEputih.png" alt="Logo Saba Exploit">
+      </div>
     </div>
-
   </section>
 
   <!-- STORY -->
@@ -87,8 +85,7 @@
     <div class="story-sticky">
 
       <div class="story-image">
-        <img src="./assets/Untitled design.png"
-        >
+        <img src="./assets/Untitled design.png" alt="Memory Image">
       </div>
 
       <div class="story-title">
@@ -144,19 +141,54 @@
   </section>
 
 
-  <!-- GSAP -->
+  <!-- GSAP & PLUGINS (PENTING: Harus urut!) -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
 
   <script>
+    // Registrasikan Plugin GSAP
+    gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-    gsap.registerPlugin(ScrollTrigger);
+    /* =========================
+       CUSTOM CURSOR
+    ========================= */
+    const cursor = document.querySelector(".cursor");
+
+    if (cursor) {
+      document.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+          x: e.clientX,
+          y: e.clientY,
+          duration: 0.15,
+          ease: "power2.out"
+        });
+      });
+
+      document.querySelectorAll("a, button, .final-button").forEach(link => {
+        link.addEventListener("mouseenter", () => {
+          gsap.to(cursor, {
+            width: 55,
+            height: 55,
+            background: "#ff4655",
+            duration: 0.25
+          });
+        });
+
+        link.addEventListener("mouseleave", () => {
+          gsap.to(cursor, {
+            width: 18,
+            height: 18,
+            background: "transparent",
+            duration: 0.25
+          });
+        });
+      });
+    }
 
     /* =========================
        HERO ANIMATION
     ========================= */
-
     gsap.to(".hero-image", {
       scale: 1.25,
       rotation: -3,
@@ -201,28 +233,44 @@
       }
     });
 
+    /* =========================
+       INTRO TEXT & TYPING
+    ========================= */
+    const introText = "Saba ExploiT adalah organisasi teknologi informasi dan kreativitas digital yang didirikan pada tahun 2006 di SMAN 1 Bantul oleh empat siswa Tim Olimpiade Komputer: Faizal Afnan, Fanni Suyuti, Isnawan Ibnu, dan Ghozy Ul-Haq. Komunitas ini dibentuk sebagai wadah siswa untuk mengembangkan keahlian di bidang pemrograman, desain grafis, fotografi, serta sinematografi. Melalui organisasi ini, para anggotanya aktif memelopori kemajuan IT di sekolah, memproduksi karya kreatif secara konsisten.";
+
+    if (document.querySelector("#typed-text")) {
+      gsap.to("#typed-text", {
+        text: {
+          value: introText,
+          delimiter: ""
+        },
+        duration: 8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "top 75%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    }
+
+    if (document.querySelector(".intro-image")) {
+      gsap.from(".intro-image", {
+        opacity: 0,
+        y: 40,
+        scale: 0.9,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "top 70%"
+        }
+      });
+    }
 
     /* =========================
-       INTRO TEXT
+       STORY ANIMATION (THE MEMORY)
     ========================= */
-
-    gsap.from(".intro-text p", {
-      y: 150,
-      opacity: 0,
-      scale: .8,
-      scrollTrigger: {
-        trigger: ".intro",
-        start: "top 80%",
-        end: "center center",
-        scrub: 1
-      }
-    });
-
-
-    /* =========================
-       STORY ANIMATION
-    ========================= */
-
     const storyTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".story",
@@ -239,38 +287,32 @@
         height: "90vh",
         duration: 1
       })
-
       .to(".story-image img", {
         scale: 1,
         filter: "grayscale(0)",
         duration: 1
       }, "<")
-
       .to(".story-title", {
         scale: 1.3,
         letterSpacing: "10px",
         duration: 1
       }, "<")
-
       .to(".story-title", {
         opacity: 0,
         scale: 2,
         duration: 1
       })
-
       .to(".story-image", {
         scale: 1.5,
         opacity: 0,
         duration: 1
       }, "<");
 
-
     /* =========================
-       FINAL SECTION
+       FINAL SECTION (WHO IS THE NEXT?)
     ========================= */
-
     gsap.from(".final-content", {
-      scale: .5,
+      scale: 0.5,
       opacity: 0,
       rotate: -5,
       scrollTrigger: {
@@ -292,59 +334,12 @@
       }
     });
 
-
-    /* =========================
-       CUSTOM CURSOR
-    ========================= */
-
-    const cursor = document.querySelector(".cursor");
-
-    document.addEventListener("mousemove", (e) => {
-
-      gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: .15,
-        ease: "power2.out"
-      });
-
-    });
-
-    document.querySelectorAll("a").forEach(link => {
-
-      link.addEventListener("mouseenter", () => {
-
-        gsap.to(cursor, {
-          width: 55,
-          height: 55,
-          background: "#ff4655",
-          duration: .25
-        });
-
-      });
-
-      link.addEventListener("mouseleave", () => {
-
-        gsap.to(cursor, {
-          width: 18,
-          height: 18,
-          background: "transparent",
-          duration: .25
-        });
-
-      });
-
-    });
-
-
     /* =========================
        PARALLAX MOUSE
     ========================= */
-
     document.addEventListener("mousemove", (e) => {
-
-      const x = (e.clientX / window.innerWidth - .5);
-      const y = (e.clientY / window.innerHeight - .5);
+      const x = (e.clientX / window.innerWidth - 0.5);
+      const y = (e.clientY / window.innerHeight - 0.5);
 
       gsap.to(".hero-image", {
         x: x * 20,
@@ -352,9 +347,7 @@
         duration: 1,
         overwrite: true
       });
-
     });
-
   </script>
 
 </body>
