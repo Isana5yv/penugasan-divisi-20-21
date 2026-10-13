@@ -624,3 +624,345 @@
         display: none;
       }
     }
+
+    /* DIVISI */
+
+     #divisi{
+        width: 100%;
+        height: 500vh;
+        justify-content: center;
+        align-items: center;
+        padding-top: 180px;
+    }
+
+    #divisi .divisi_wrap {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        gap: 70px;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 200px;
+        text-align: center;
+    }
+
+    .divisi_card {
+        position: relative;
+        inset: 0;
+        z-index: 2;
+        background: #101010;
+        box-shadow: inset -26px 16px 100px -32px rgba(255, 50, 50, 0.18);
+border-radius: 12px;
+         width: 300px;
+         height: 250px;
+         border: 1px solid #555;
+         cursor: pointer;
+          transition:
+        transform 0.5s cubic-bezier(.2,.7,.2,1),
+        opacity 0.35s ease;
+    }
+
+    .divisi_card_font{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        padding-bottom: 0;
+        padding-top: 30px;
+        gap: 10px;
+    }
+
+    .divisi_card img {
+        width:250px;
+        height: 120px;
+        margin-top: 10px;
+        margin-bottom: -10px;
+        background-color: #080808;
+        border-radius: 12px;
+        object-fit: contain;
+    }
+
+    .divisi_card_font p{
+        margin-bottom: 0px;
+        padding-bottom: 0;
+        font-size: 1em;
+        text-align: left;
+    }
+
+    .pengantar_divisi{
+        gap: 25px;
+         display: flex;
+    width: 100%;
+    height: min-content;
+    gap: 25px;
+    align-items: center;
+    }
+
+    .pengantar_divisi:first-of-type p {
+    opacity: 0;
+    /*
+    animation-delay: 0.2s;*/
+}
+
+.pengantar_divisi:first-of-type p.in-view {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.pengantar_divisi:first-of-type hr {
+    width: 0;
+    border: none;
+    height: 2px;
+    background-color: #ff1e1e; /* Sesuaikan warna garis jika perlu */
+}
+
+.pengantar_divisi:first-of-type hr.in-view{
+animation: expandLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+    .pengantar_divisi p{
+        font-size: 2em;
+        font-weight: 400;
+        letter-spacing: 10px;
+        color: #ff1e1e;
+    margin: 0;
+}
+
+    /*#divisi h1{
+        font-size: clamp(70px, 80vw, 180px);
+    width: 580px;
+    height: 90px;
+    font-weight: 800;
+    line-height: 90px;
+    
+    /* 2. DIVISION (Blur-to-Clear & Slide Up) */
+   /* opacity: 0;
+    filter: blur(12px);
+    transform: translateY(20px);
+    animation: blurSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.5s;
+    }*/
+
+    
+#divisi h1 {
+    font-size: clamp(70px, 12vw, 180px);
+    width: 580px;
+    height: 90px;
+    font-weight: 800;
+    line-height: 90px;
+
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(20px);
+}
+
+#divisi h1.in-view {
+    animation: blurSlideUp 1s
+        cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+    .judul_divisi {
+        width: 50%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    #divisi .judul_divisi hr {
+       border: none;
+       background-color: #ff1e1e;
+       height: 4px;
+       width: 145px;
+       justify-content: center;
+       align-items: center;
+       margin-top: 16px;
+    }
+
+    .divisi_card_font hr {
+        width: 90%;
+        border: none;
+        background-color: rgba(255, 30, 30, 0.29);
+        height: 5px;
+        margin: auto;
+        border-radius: 12px;
+    }
+
+    #pengantar_bawah{
+        text-align: right;
+        justify-content: right;
+        margin-right: 0;
+    }
+
+    #pengantar_bawah p {
+    opacity: 0;
+    transform: translateX(70px);
+}
+
+#pengantar_bawah p.in-view{
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+#pengantar_bawah hr {
+    width: 0;
+    border: none;
+    height: 2px;
+    background-color: #ff1e1e;
+}
+
+#pengantar_bawah hr.in-view{
+  animation: expandLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+   /* .divisi_total {
+        position: relative;
+        width: 300px;
+        height: 250px;
+        isolation: isolate;
+        opacity: 0;
+    transform: translateY(40px);
+    animation: cardFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+     .divisi_total:nth-child(1) { animation-delay: 1.3s; }
+.divisi_total:nth-child(2) { animation-delay: 2s; }
+.divisi_total:nth-child(3) { animation-delay: 1.5s; }
+.divisi_total:nth-child(4) { animation-delay: 1.6s; }
+.divisi_total:nth-child(5) { animation-delay: 1.7s; } */
+
+
+.divisi_total {
+    position: relative;
+    width: 300px;
+    height: 250px;
+    isolation: isolate;
+
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.divisi_total.in-view {
+    animation: cardFadeUp 0.7s
+        cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.divisi_total.in-view:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.divisi_total.in-view:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.divisi_total.in-view:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.divisi_total.in-view:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.divisi_total.in-view:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+    .card_keterangan {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /*width: 350px;
+        height: 420px;*/
+        background-color: rgb(128, 128, 128, 0.2);
+        border-radius: 12px;
+        border: 2px solid grey;
+        padding: 30px;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: 0;
+        visibility: hidden;
+         transition:
+        transform 0.5s ease,
+        opacity 0.35s ease,
+        visibility 0s linear 0.5s;
+
+    pointer-events: none;
+    }
+
+    .card_keterangan p{
+         margin-bottom: 0px;
+        padding-bottom: 0;
+        font-size: 1em;
+        text-align: justify;
+        padding: 10px;
+    }
+
+    .divisi_total.active .divisi_card {
+   transform: translateX(130px) translateY(110px) rotate(6deg) scale(.5);
+    pointer-events: none;
+    box-shadow: 0px 10px 40px -5px rgba(255, 30, 30, 0.29);
+}
+
+/* Keterangan muncul dari belakang */
+.divisi_total.active .card_keterangan {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-25px) scale(1);
+ transition:
+        transform 0.5s ease,
+        opacity 0.35s ease,
+        visibility 0s;
+    pointer-events: auto;
+}
+
+.card_keterangan button{
+    background-color: rgba(255, 30, 30, 0.29);
+    border-radius: 12px;
+    width: 50%;
+    font-size: 1em;
+    padding: 5px;
+    color: white;
+}
+
+.divisi_card:hover{
+    transform: translateY(-8px); /* Kartu sedikit naik ke atas */
+    border-color: #ff1e1e; /* Border berubah jadi warna aksen merah */
+    box-shadow: inset -26px 16px 100px -32px rgba(255, 50, 50, 0.3), 
+                0 12px 30px rgba(255, 30, 30, 0.15);
+}
+
+#divisi a{
+    color: rgb(255,255,255, 0.7);
+    border-bottom: none;
+}
+
+@keyframes cardFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes expandLine {
+    from { width: 0; }
+    to { width: 120px; /* Atur panjang garis di sini */ }
+}
+
+@keyframes blurSlideUp {
+    to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

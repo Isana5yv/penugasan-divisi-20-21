@@ -114,6 +114,99 @@
 
   </div>
 
+  <!-- DIVISI & ANGGOTA -->
+
+   <section id="divisi">
+        <div class="judul_divisi">
+        <div class="pengantar_divisi">
+            <hr>
+            <p>explore our teams</p>
+        </div>
+        <h1>DIVISION</h1>
+        <div class="pengantar_divisi" id="pengantar_bawah">
+        <p>and our job</p>
+        <hr>
+        </div>
+        </div>
+        <div class="divisi_wrap">
+            <div class="divisi_total">
+            <div class="card_keterangan">
+                <h2>Programming</h2>
+                <p>lorem ipsum dolor sit amet consectetur adipiscing elit mollit occaecat nulla ducimus id in nisi qui ad aute amet excepteur fugiat ea voluptatum id quod occaecat in adipiscing laborum mollit</p>
+                <button class="kembali"> kembali -> </button>
+            </div>
+            <div class="divisi_card" id="techno_icon">
+                <img src="./divisi/prog.png" alt="programming icon">
+                <div class="divisi_card_font">
+                    <hr>
+                    <h2><b>PROGRAMMING</b></h2>
+                  <p><a href="./divisi/programming.html">Lihat anggota -</a></p>
+                </div>
+            </div>
+            </div>
+            <div class="divisi_total">
+            <div class="card_keterangan">
+                <h2>Cinematography</h2>
+                <p>lorem ipsum dolor sit amet consectetur adipiscing elit mollit occaecat nulla ducimus id in nisi qui ad aute amet excepteur fugiat ea voluptatum id quod occaecat in adipiscing laborum mollit</p>
+                <button class="kembali"> kembali -> </button>
+            </div>
+            <div class="divisi_card" id="techno_icon">
+                <img src="./divisi/cine.png" alt="programming icon">
+                <div class="divisi_card_font">
+                    <hr>
+                    <h2><b>CINEMATOGRAPHY</b></h2>
+                   <p><a href="./divisi/cine.html">Lihat anggota -</a></p>
+                </div>
+            </div>
+            </div>
+            <div class="divisi_total">
+            <div class="card_keterangan">
+                <h2>Photography</h2>
+                <p>lorem ipsum dolor sit amet consectetur adipiscing elit mollit occaecat nulla ducimus id in nisi qui ad aute amet excepteur fugiat ea voluptatum id quod occaecat in adipiscing laborum mollit</p>
+                <button class="kembali"> kembali -> </button>
+            </div>
+            <div class="divisi_card" id="techno_icon">
+                <img src="./divisi/foto.png" alt="programming icon">
+                <div class="divisi_card_font">
+                    <hr>
+                    <h2><b>PHOTOGRAPHY</b></h2>
+                   <p><a href="./divisi/foto.html">Lihat anggota -</a></p>
+                </div>
+            </div>
+            </div>
+            <div class="divisi_total">
+            <div class="card_keterangan">
+                <h2>Design</h2>
+                <p>lorem ipsum dolor sit amet consectetur adipiscing elit mollit occaecat nulla ducimus id in nisi qui ad aute amet excepteur fugiat ea voluptatum id quod occaecat in adipiscing laborum mollit</p>
+                <button class="kembali"> kembali -> </button>
+            </div>
+            <div class="divisi_card" id="techno_icon">
+                <img src="./divisi/design.png" alt="programming icon">
+                <div class="divisi_card_font">
+                    <hr>
+                    <h2><b>DESIGN</b></h2>
+                   <p><a href="./divisi/design.html">Lihat anggota -</a></p>
+                </div>
+            </div>
+            </div>
+            <div class="divisi_total">
+            <div class="card_keterangan">
+                <h2>Technopreneurship</h2>
+                <p>lorem ipsum dolor sit amet consectetur adipiscing elit mollit occaecat nulla ducimus id in nisi qui ad aute amet excepteur fugiat ea voluptatum id quod occaecat in adipiscing laborum mollit</p>
+                <button class="kembali"> kembali -> </button>
+            </div>
+            <div class="divisi_card" id="techno_icon">
+                <img src="./divisi/techno.png" alt="programming icon">
+                <div class="divisi_card_font">
+                    <hr>
+                    <h2><b>TECHNOPRENEURSHIP</b></h2>
+                   <p><a href="./divisi/techno.html">Lihat anggota -</a></p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
   <!-- FINAL -->
   <section class="final">
 
@@ -348,6 +441,56 @@
         overwrite: true
       });
     });
+
+     /* =========================
+       DIVISIIII
+    ========================= */
+
+    document.querySelectorAll(".divisi_total").forEach((item) => {
+    const card = item.querySelector(".divisi_card");
+    const kembali = item.querySelector(".kembali");
+
+    card.addEventListener("click", () => {
+        item.classList.add("active");
+    });
+
+    if (kembali) {
+        kembali.addEventListener("click", (event) => {
+            event.stopPropagation();
+            item.classList.remove("active");
+        });
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(`
+        #divisi h1,
+        .pengantar_divisi:first-of-type p,
+        .pengantar_divisi:first-of-type hr,
+        #pengantar_bawah p,
+        #pengantar_bawah hr,
+        .divisi_total
+    `);
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+
+                // Animasi hanya sekali ketika pertama kali terlihat
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    elements.forEach((element) => {
+        observer.observe(element);
+    });
+});
+
   </script>
 
 </body>

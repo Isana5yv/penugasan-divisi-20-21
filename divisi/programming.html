@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+<style>
+        /* =========================
+   RESET & DASAR HALAMAN
+========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left,
+                    rgba(163, 48, 48, 0.48),
+                    transparent 30rem),
+                radial-gradient(circle at bottom right,
+                    rgba(163, 48, 48, 0.35),
+                    transparent 28rem),
+                #090909;
+            color: #f5f5f5;
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+   SECTION & JUDUL
+========================= */
+        #prog_division {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 64px) 80px;
+        }
+
+        #prog_division #judul_divisi {
+            width: fit-content;
+            max-width: 100%;
+            min-height: 1.2em;
+            margin: 0 auto clamp(48px, 7vw, 76px);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.2rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.045em;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        #judul_divisi::after {
+            content: "|";
+            display: inline-block;
+            margin-left: 5px;
+            color: #cd4b4b;
+            animation: kedip 0.8s steps(1) infinite;
+        }
+
+        @keyframes kedip {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+   GRID CARD
+========================= */
+        .card_anggota_wrap {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        /* =========================
+   CARD ANGGOTA
+========================= */
+        #card_anggota {
+            min-width: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            background: #101010;
+            border: 1px solid rgba(255, 255, 255, 0.055);
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(120, 20, 20, 0.10);
+
+            opacity: 0;
+            transform: translateY(22px);
+
+            transition:
+                transform 0.28s ease,
+                border-color 0.28s ease,
+                box-shadow 0.28s ease;
+        }
+
+        #card_anggota.in-view {
+            animation: cardMasuk 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+        }
+
+        #card_anggota:hover {
+            transform: translateY(-5px);
+            border-color: rgba(205, 75, 75, 0.35);
+            box-shadow: 0 12px 28px rgba(120, 20, 20, 0.20);
+        }
+
+        @keyframes cardMasuk {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+   GAMBAR
+========================= */
+        #card_anggota>img {
+            display: block;
+            width: 100%;
+            height: clamp(150px, 18vw, 220px);
+            flex-shrink: 0;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* =========================
+   KONTEN CARD
+========================= */
+        #card_anggota>.px-6.py-4 {
+            padding: 18px 16px 8px;
+            text-align: center;
+        }
+
+        #nama_anggota {
+            height: auto;
+            margin: 0;
+            padding: 0;
+
+            color: #f5f5f5;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: -0.025em;
+
+            overflow-wrap: anywhere;
+        }
+
+        #jabatan_anggota {
+            margin-top: 7px;
+            padding: 0;
+
+            color: #a1a1aa;
+            font-family: "DM Sans", sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            font-weight: 400;
+            opacity: 1;
+            overflow-wrap: anywhere;
+        }
+
+        /* =========================
+   LABEL GENERASI
+========================= */
+        #bungkus_gen {
+            margin-top: auto;
+            padding: 8px 16px 16px;
+        }
+
+        #gen_anggota {
+            display: inline-block;
+            margin: 0;
+            padding: 7px 12px;
+
+            color: #ffeaea;
+            background: rgba(150, 20, 20, 0.55);
+            border: 1px solid rgba(205, 75, 75, 0.15);
+            border-radius: 7px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 0.82rem;
+            line-height: 1.2;
+        }
+
+        /* =========================
+   TABLET
+========================= */
+        @media (max-width: 1000px) {
+            #prog_division {
+                padding-inline: 28px;
+            }
+
+            .card_anggota_wrap {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 22px;
+            }
+
+            #card_anggota>img {
+                height: 190px;
+            }
+        }
+
+        /* =========================
+   TABLET KECIL / HP BESAR
+========================= */
+        @media (max-width: 760px) {
+            #prog_division {
+                padding: 48px 22px 60px;
+            }
+
+            #prog_division #judul_divisi {
+                margin-bottom: 42px;
+            }
+
+            .card_anggota_wrap {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 18px;
+            }
+
+            #card_anggota>img {
+                height: 190px;
+            }
+
+            #nama_anggota {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* =========================
+   HP KECIL
+========================= */
+        @media (max-width: 420px) {
+            #prog_division {
+                padding-inline: 16px;
+            }
+
+            #prog_division #judul_divisi {
+                font-size: clamp(1.8rem, 9vw, 2.4rem);
+                margin-bottom: 32px;
+            }
+
+            .card_anggota_wrap {
+                gap: 14px;
+            }
+
+            #card_anggota {
+                border-radius: 9px;
+            }
+
+            #card_anggota>img {
+                height: 145px;
+            }
+
+            #card_anggota>.px-6.py-4 {
+                padding: 13px 9px 6px;
+            }
+
+            #nama_anggota {
+                font-size: 0.95rem;
+            }
+
+            #jabatan_anggota {
+                font-size: 0.8rem;
+            }
+
+            #bungkus_gen {
+                padding: 7px 9px 11px;
+            }
+
+            #gen_anggota {
+                padding: 6px 9px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Hormati pengaturan pengurangan animasi */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="prog_division">
+        <div class="judul_divisi" id="judul_divisi">
+        </div>
+        <div class="card_anggota_wrap">
+            <div class="max-w-sm rounded overflow-hidden shadow-lg shadow-custom" id="card_anggota">
+                <img class="w-full" src="./ea508059e1a6d2f2439c7fac89590526.jpg" alt="user">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2" id="nama_anggota">lorem ipsum dolor sit amet</div>
+                    <p class="text-gray-700 text-base" id="jabatan_anggota">
+                        koordinator </p>
+                </div>
+                <div class="px-6 pt-4 pb-2" id="bungkus_gen">
+                    <span id="gen_anggota"
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">gen
+                        21</span>
+                </div>
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg shadow-custom" id="card_anggota">
+                <img class="w-full"
+                    src="./ea508059e1a6d2f2439c7fac89590526.jpg" alt="user">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2" id="nama_anggota">lorem ipsum dolor sit amet</div>
+                    <p class="text-gray-700 text-base" id="jabatan_anggota">
+                        anggota </p>
+                </div>
+                <div class="px-6 pt-4 pb-2" id="bungkus_gen">
+                    <span id="gen_anggota"
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">gen
+                        21</span>
+                </div>
+            </div>
+
+             <div class="max-w-sm rounded overflow-hidden shadow-lg shadow-custom" id="card_anggota">
+                <img class="w-full"
+                    src="./ea508059e1a6d2f2439c7fac89590526.jpg" alt="user">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2" id="nama_anggota">lorem ipsum dolor sit amet</div>
+                    <p class="text-gray-700 text-base" id="jabatan_anggota">
+                        anggota </p>
+                </div>
+                <div class="px-6 pt-4 pb-2" id="bungkus_gen">
+                    <span id="gen_anggota"
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">gen
+                        21</span>
+                </div>
+            </div>
+
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg shadow-custom" id="card_anggota">
+                <img class="w-full"
+                    src="./ea508059e1a6d2f2439c7fac89590526.jpg" alt="user">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2" id="nama_anggota">lorem ipsum dolor sit amet</div>
+                    <p class="text-gray-700 text-base" id="jabatan_anggota">
+                        anggota </p>
+                </div>
+                <div class="px-6 pt-4 pb-2" id="bungkus_gen">
+                    <span id="gen_anggota"
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">gen
+                        21</span>
+                </div>
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg shadow-custom" id="card_anggota">
+                <img class="w-full"
+                    src="./ea508059e1a6d2f2439c7fac89590526.jpg" alt="user">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2" id="nama_anggota">lorem ipsum dolor sit amet</div>
+                    <p class="text-gray-700 text-base" id="jabatan_anggota">
+                        anggota </p>
+                </div>
+                <div class="px-6 pt-4 pb-2" id="bungkus_gen">
+                    <span id="gen_anggota"
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">gen
+                        21</span>
+                </div>
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg shadow-custom" id="card_anggota">
+                <img class="w-full"
+                    src="./ea508059e1a6d2f2439c7fac89590526.jpg" alt="user">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2" id="nama_anggota">lorem ipsum dolor sit amet</div>
+                    <p class="text-gray-700 text-base" id="jabatan_anggota">
+                        anggota </p>
+                </div>
+                <div class="px-6 pt-4 pb-2" id="bungkus_gen">
+                    <span id="gen_anggota"
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">gen
+                        21</span>
+                </div>
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg shadow-custom" id="card_anggota">
+                <img class="w-full"
+                    src="./ea508059e1a6d2f2439c7fac89590526.jpg" alt="user">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2" id="nama_anggota">lorem ipsum dolor sit amet</div>
+                    <p class="text-gray-700 text-base" id="jabatan_anggota">
+                        anggota </p>
+                </div>
+                <div class="px-6 pt-4 pb-2" id="bungkus_gen">
+                    <span id="gen_anggota"
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">gen
+                        21</span>
+                </div>
+            </div>
+
+        </div>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+            crossorigin="anonymous"></script>
+    </section>
+
+    <script>
+
+
+        const judul = document.getElementById("judul_divisi");
+        const teks = "PROGRAMMING";
+
+        let index = 0;
+
+        function mulaiTyping() {
+            if (!judul || index >= teks.length) return;
+
+            judul.textContent += teks.charAt(index);
+            index++;
+
+            setTimeout(mulaiTyping, 180);
+        }
+
+        mulaiTyping();
+
+        /* Animasi card saat terlihat ketika scroll */
+        const cards = document.querySelectorAll("#card_anggota");
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+
+                    const card = entry.target;
+                    const urutan = [...cards].indexOf(card);
+
+                    card.style.animationDelay = `${(urutan % 4) * 80}ms`;
+                    card.classList.add("in-view");
+
+                    observer.unobserve(card);
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: "0px 0px -30px 0px"
+            });
+
+            cards.forEach((card) => observer.observe(card));
+        } else {
+            cards.forEach((card) => card.classList.add("in-view"));
+        }
+
+
+    </script>
+</body>
+
+</html>
