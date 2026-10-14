@@ -163,7 +163,7 @@ nav {
 }
 
 .small-title {
-  color: #ff4655;
+  color: #ff0015;
   font-size: 12px;
   letter-spacing: 7px;
   text-transform: uppercase;
@@ -179,7 +179,7 @@ nav {
 }
 
 .hero-title .red-text {
-  color: #ff4655;
+  color:#ff283a;
 }
 
 .hero-title span {
@@ -232,7 +232,96 @@ nav {
   }
 }
 
-/* Intro */
+
+/* =========================
+   INTRO SECTION (Layout Kiri - Kanan)
+
+.intro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 5vw 8vw;
+  background: #111;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 50px;
+}
+
+/* Animasi Goyang / Mengapung */
+@keyframes goyang {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(8px) rotate(3deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Terapkan animasi ke gambar di section intro */
+.intro-image img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  
+  /* Tambahkan baris ini */
+  animation: goyang 3s ease-in-out infinite;
+}
+
+/* Teks Biasa di Kiri */
+.intro-text {
+  flex: 1;
+  text-align: left;
+  /* Rata kiri */
+  font-family: "Inter", sans-serif;
+  /* Menggunakan font biasa/Inter */
+  font-size: clamp(24px, 3.5vw, 48px);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #ffffff;
+  display: inline-block;
+}
+
+/* Kursor Animasi Mengetik */
+.cursor-type {
+  font-weight: 300;
+  color: #ff4655;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* =========================
+   INTRO SECTION (Modern & Smooth)
+
 .intro {
   min-height: 100vh;
   display: flex;
