@@ -169,7 +169,7 @@ nav {
 }
 
 .small-title {
-  color: #ff4655;
+  color: #ff0015;
   font-size: 12px;
   letter-spacing: 7px;
   text-transform: uppercase;
@@ -185,7 +185,7 @@ nav {
 }
 
 .hero-title .red-text {
-  color: #ff4655;
+  color:#ff283a;
 }
 
 .hero-title span {
@@ -260,6 +260,37 @@ nav {
   width: 100%;
   max-width: 1200px;
   gap: 50px;
+}
+
+/* Animasi Goyang / Mengapung */
+@keyframes goyang {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(8px) rotate(3deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Terapkan animasi ke gambar di section intro */
+.intro-image img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  
+  /* Tambahkan baris ini */
+  animation: goyang 3s ease-in-out infinite;
 }
 
 /* Teks Biasa di Kiri */
