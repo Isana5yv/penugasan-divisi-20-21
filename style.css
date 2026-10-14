@@ -15,9 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ========================a=
-       LOADER
-    ========================= */
+/* LOADER */
 
 .loader {
   position: fixed;
@@ -61,9 +59,7 @@ body {
   }
 }
 
-/* =========================
-       NAVBAR
-    ========================= */
+/* NAVBAR */
 
 nav {
   position: fixed;
@@ -101,9 +97,7 @@ nav {
   letter-spacing: 3px;
 }
 
-/* =========================
-       HERO
-    ========================= */
+/* HERO */
 
 .hero {
   height: 100vh;
@@ -238,67 +232,7 @@ nav {
   }
 }
 
-
-/* =========================
-   INTRO SECTION (Layout Kiri - Kanan)
-========================= */
-
-.intro {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 5vw 8vw;
-  background: #111;
-}
-
-.intro-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  gap: 50px;
-}
-
-/* Teks Biasa di Kiri */
-.intro-text {
-  flex: 1;
-  text-align: left;
-  /* Rata kiri */
-  font-family: "Inter", sans-serif;
-  /* Menggunakan font biasa/Inter */
-  font-size: clamp(24px, 3.5vw, 48px);
-  font-weight: 500;
-  line-height: 1.4;
-  color: #ffffff;
-  display: inline-block;
-}
-
-/* Kursor Animasi Mengetik */
-.cursor-type {
-  font-weight: 300;
-  color: #ff4655;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-/* =========================
-   INTRO SECTION (Modern & Smooth)
-========================= */
-
+/* Intro */
 .intro {
   min-height: 100vh;
   display: flex;
@@ -307,6 +241,7 @@ nav {
   padding: 80px 10%;
   background: #080808;
   overflow: hidden;
+  position: relative;
 }
 
 .intro-container {
@@ -318,16 +253,14 @@ nav {
   gap: 60px;
 }
 
-/* Teks Kiri */
+/* Kolom Teks (Kiri) */
 .intro-text {
   flex: 1.2;
   text-align: left;
   font-family: "Inter", sans-serif;
   font-size: clamp(18px, 1.6vw, 24px);
-  /* Ukuran teks lebih proporsional & rapi */
   font-weight: 400;
   line-height: 1.8;
-  /* Jarak antar baris yang nyaman dibaca */
   color: #e0e0e0;
   position: relative;
 }
@@ -336,7 +269,7 @@ nav {
   display: inline;
 }
 
-/* Kursor Animasi Mengetik */
+/* Animasi Kursor Mengetik */
 .cursor-type {
   font-weight: 300;
   color: #ff4655;
@@ -345,18 +278,15 @@ nav {
 }
 
 @keyframes blink {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }
 }
 
-/* Gambar Kanan */
+/* Kolom Gambar (Kanan) */
 .intro-image {
   flex: 0.8;
   display: flex;
@@ -372,10 +302,14 @@ nav {
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
-/* Responsif untuk Layar HP / Tablet */
+/* Responsif: Layar Tablet & HP */
 @media (max-width: 900px) {
+  .intro {
+    padding: 100px 6% 60px;
+  }
+
   .intro-container {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
     gap: 40px;
   }
 
@@ -385,7 +319,7 @@ nav {
   }
 
   .intro-image img {
-    max-width: 250px;
+    max-width: 240px;
   }
 }
 
