@@ -233,9 +233,7 @@ nav {
 }
 
 
-/* =========================
-   INTRO SECTION (Layout Kiri - Kanan)
-
+/* INTRO SECTION */
 .intro {
   min-height: 100vh;
   display: flex;
@@ -321,7 +319,7 @@ nav {
 
 /* =========================
    INTRO SECTION (Modern & Smooth)
-
+*/
 .intro {
   min-height: 100vh;
   display: flex;
@@ -330,7 +328,6 @@ nav {
   padding: 80px 10%;
   background: #080808;
   overflow: hidden;
-  position: relative;
 }
 
 .intro-container {
@@ -342,14 +339,16 @@ nav {
   gap: 60px;
 }
 
-/* Kolom Teks (Kiri) */
+/* Teks Kiri */
 .intro-text {
   flex: 1.2;
   text-align: left;
   font-family: "Inter", sans-serif;
   font-size: clamp(18px, 1.6vw, 24px);
+  /* Ukuran teks lebih proporsional & rapi */
   font-weight: 400;
   line-height: 1.8;
+  /* Jarak antar baris yang nyaman dibaca */
   color: #e0e0e0;
   position: relative;
 }
@@ -358,7 +357,7 @@ nav {
   display: inline;
 }
 
-/* Animasi Kursor Mengetik */
+/* Kursor Animasi Mengetik */
 .cursor-type {
   font-weight: 300;
   color: #ff4655;
@@ -367,15 +366,18 @@ nav {
 }
 
 @keyframes blink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
 }
 
-/* Kolom Gambar (Kanan) */
+/* Gambar Kanan */
 .intro-image {
   flex: 0.8;
   display: flex;
@@ -391,14 +393,10 @@ nav {
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
-/* Responsif: Layar Tablet & HP */
+/* Responsif untuk Layar HP / Tablet */
 @media (max-width: 900px) {
-  .intro {
-    padding: 100px 6% 60px;
-  }
-
   .intro-container {
-    flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
+    flex-direction: column-reverse;
     gap: 40px;
   }
 
@@ -408,7 +406,7 @@ nav {
   }
 
   .intro-image img {
-    max-width: 240px;
+    max-width: 250px;
   }
 }
 
@@ -1092,51 +1090,51 @@ nav {
 .divisi_total.active .card_keterangan {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-25px) scale(1);
-  transition:
-    transform 0.5s ease,
-    opacity 0.35s ease,
-    visibility 0s;
-  pointer-events: auto;
+transform: translateX(-25px) scale(1);
+transition:
+  transform 0.5s ease,
+  opacity 0.35s ease,
+  visibility 0s;
+pointer-events: auto;
 }
 
 .card_keterangan button {
-  background-color: rgba(255, 30, 30, 0.29);
-  border-radius: 12px;
-  width: 50%;
-  font-size: 1em;
-  padding: 5px;
-  color: white;
+background-color: rgba(255, 30, 30, 0.29);
+border-radius: 12px;
+width: 50%;
+font-size: 1em;
+padding: 5px;
+color: white;
 }
 
 .divisi_card:hover {
-  transform: translateY(-8px);
-  /* Kartu sedikit naik ke atas */
-  border-color: #ff1e1e;
-  /* Border berubah jadi warna aksen merah */
-  box-shadow: inset -26px 16px 100px -32px rgba(255, 50, 50, 0.3),
-    0 12px 30px rgba(255, 30, 30, 0.15);
+transform: translateY(-8px);
+/* Kartu sedikit naik ke atas */
+border-color: #ff1e1e;
+/* Border berubah jadi warna aksen merah */
+box-shadow: inset -26px 16px 100px -32px rgba(255, 50, 50, 0.3),
+  0 12px 30px rgba(255, 30, 30, 0.15);
 }
 
 #divisi a {
-  color: rgb(255, 255, 255, 0.7);
-  border-bottom: none;
+color: rgb(255, 255, 255, 0.7);
+border-bottom: none;
 }
 
 @keyframes cardFadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+from {
+  opacity: 0;
+}
 
-  to {
-    opacity: 1;
+to {
+  opacity: 1;
   }
 }
 
