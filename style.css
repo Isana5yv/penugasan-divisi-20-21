@@ -948,18 +948,18 @@ nav {
 }
 
 .pengantar_divisi p {
-  font-size: 2em;
+  font-size: clamp(14px, 2.2vw, 32px);
+  letter-spacing: clamp(2px, 0.8vw, 10px);
   font-weight: 400;
-  letter-spacing: 10px;
   color: #ff1e1e;
   margin: 0;
 }
 
 
 #divisi h1 {
-  font-size: clamp(70px, 12vw, 180px);
-  width: 580px;
-  height: 90px;
+  font-size: clamp(48px, 12vw, 180px);
+  width: 100%;
+  height: auto;
   font-weight: 800;
   line-height: 90px;
 
@@ -973,7 +973,7 @@ nav {
 }
 
 .judul_divisi {
-  width: 50%;
+  width: min(80%, 1000px);
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -1019,6 +1019,36 @@ nav {
   border: none;
   height: 2px;
   background-color: #ff1e1e;
+}
+
+@media (max-width: 480px) {
+  .judul_divisi {
+    width: 92%;
+    gap: 22px;
+  }
+
+  #divisi .judul_divisi hr {
+    height: 2px;
+    margin-top: 8px;
+  }
+
+  .pengantar_divisi {
+    gap: 8px;
+  }
+
+  .pengantar_divisi p {
+    font-size: clamp(12px, 3.5vw, 16px);
+    letter-spacing: 2px;
+  }
+
+  #divisi h1 {
+    font-size: clamp(42px, 13vw, 64px);
+    line-height: 1;
+  }
+
+  #pengantar_bawah p {
+    transform: translateX(30px);
+  }
 }
 
 #pengantar_bawah hr.in-view {
