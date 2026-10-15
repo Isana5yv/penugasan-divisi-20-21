@@ -6,8 +6,6 @@
 
   <title>Saba Exploit</title>
 
-  <!-- Google Font -->
-   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,20 +23,27 @@
   <!-- CURSOR -->
   <div class="cursor"></div>
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">
-      <img src="./assets/SEputih.png" alt="Logo Saba Exploit" class="nav-logo-img">
-    </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#beranda" class="nav-brand">
+        <img src="./assets/SEputih.png" alt="Logo Saba Exploit" class="nav-logo-img">
+        <span class="nav-logo-text">SABA EXPLOIT</span>
+      </a>
 
-    <div class="nav-right">
-      Scroll to explore
+      <!-- Menu Navigasi Tengah -->
+      <ul class="nav-links">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#sejarah">Sejarah</a></li>
+        <li><a href="#visi-misi">Visi Misi</a></li>
+        <li><a href="#divisi">Divisi</a></li>
+        <li><a href="#karya">Karya</a></li>
+      </ul>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-
+  <section class="hero" id="beranda">
     <div class="hero-grid"></div>
 
     <div class="hero-image">
@@ -66,8 +71,20 @@
 
   </section>
 
-  <!-- INTRO -->
-  <section class="intro">
+  <!-- ==================== 1. SEJARAH ==================== -->
+  <section class="intro" id="sejarah">
+    <div class="judul_section">
+      <div class="pengantar_section pengantar_atas">
+        <hr>
+        <p>our background</p>
+      </div>
+      <h1>SEJARAH</h1>
+      <div class="pengantar_section pengantar_bawah">
+        <p>and our story</p>
+        <hr>
+      </div>
+    </div>
+
     <div class="intro-container">
       <div class="intro-text">
         <p id="typed-text"></p>
@@ -80,110 +97,152 @@
     </div>
   </section>
 
- 
+  <!-- ==================== 2. VISI & MISI ==================== -->
+  <section id="visi-misi" class="section-visi-misi">
+    <div class="judul_section">
+      <div class="pengantar_section pengantar_atas">
+        <hr>
+        <p>our direction</p>
+      </div>
+      <h1>VISI & MISI</h1>
+      <div class="pengantar_section pengantar_bawah">
+        <p>and our goals</p>
+        <hr>
+      </div>
+    </div>
+
+    <div class="visi-misi-wrap">
+      <div class="vm-box">
+        <h2>Visi</h2>
+        <p>"Memajukan dan mengembangkan kemampuan siswa siswi SMAN 1 Bantul dalam bidang IT."</p>
+      </div>
+      <div class="vm-box">
+        <h2>Misi</h2>
+        <p>"Mengembangkan, memelopori, dan berperan aktif dalam bidang IT di SMAN 1 Bantul."</p>
+      </div>
+    </div>
+  </section>
 
   <!-- DIVISI & ANGGOTA -->
-
-   <section id="divisi">
-        <div class="judul_divisi">
-        <div class="pengantar_divisi">
-            <hr>
-            <p>explore our teams</p>
-        </div>
-        <h1>DIVISION</h1>
-        <div class="pengantar_divisi" id="pengantar_bawah">
+  <section id="divisi">
+    <div class="judul_section">
+      <div class="pengantar_section pengantar_atas">
+        <hr>
+        <p>explore our teams</p>
+      </div>
+      <h1>DIVISION</h1>
+      <div class="pengantar_section pengantar_bawah">
         <p>and our job</p>
         <hr>
+      </div>
+    </div>
+
+    <div class="divisi_wrap">
+      <!-- 1. PROGRAMMING (Baris Atas) -->
+      <div class="divisi_total">
+        <div class="card_keterangan">
+          <h2>Programming</h2>
+          <p>Divisi yang memelajari tentang logika pemrograman dan pengembangan perangkat lunak melalui berbagai bahasa pemrograman.</p>
+          <button class="kembali">kembali</button>
         </div>
+        <div class="divisi_card">
+          <img src="./divisi/prog.png" alt="Programming icon">
+          <div class="divisi_card_font">
+            <hr>
+            <h2><b>PROGRAMMING</b></h2>
+            <p><a href="./divisi/programming.html">Lihat anggota -</a></p>
+          </div>
         </div>
-        <div class="divisi_wrap">
-            <div class="divisi_total">
-            <div class="card_keterangan">
-                <h2>Programming</h2>
-                <p>Divisi yang memelajari tentang logika pemrograman dan pengembangan perangkat lunak melaluo berbagai bahasa pemrograman</p>
-                <button class="kembali"> kembali </button>
-            </div>
-            <div class="divisi_card" id="techno_icon">
-                <img src="./divisi/prog.png" alt="programming icon">
-                <div class="divisi_card_font">
-                    <hr>
-                    <h2><b>PROGRAMMING</b></h2>
-                  <p><a href="./divisi/programming.html">Lihat anggota -</a></p>
-                </div>
-            </div>
-            </div>
-            <div class="divisi_total">
-            <div class="card_keterangan">
-                <h2>Cinematography</h2>
-                <p>Divisi yang memelajari tentang teknik perekaman dn pengeditan video untuk keperluan produksi film dan media</p>
-                <button class="kembali"> kembali </button>
-            </div>
-            <div class="divisi_card" id="techno_icon">
-                <img src="./divisi/cine.png" alt="programming icon">
-                <div class="divisi_card_font">
-                    <hr>
-                    <h2><b>CINEMATOGRAPHY</b></h2>
-                   <p><a href="./divisi/cine.html">Lihat anggota -</a></p>
-                </div>
-            </div>
-            </div>
-            <div class="divisi_total">
-            <div class="card_keterangan">
-                <h2>Photography</h2>
-                <p>Divisi yang memelajari tentang teknik pengambilan gambar dan editing foto untuk keperluan divisi dan media</p>
-                <button class="kembali"> kembali </button>
-            </div>
-            <div class="divisi_card" id="techno_icon">
-                <img src="./divisi/foto.png" alt="programming icon">
-                <div class="divisi_card_font">
-                    <hr>
-                    <h2><b>PHOTOGRAPHY</b></h2>
-                   <p><a href="./divisi/foto.html">Lihat anggota -</a></p>
-                </div>
-            </div>
-            </div>
-            <div class="divisi_total">
-            <div class="card_keterangan">
-                <h2>Design</h2>
-                <p>Divisi yang memelajari tentang desain grafis dan ilustrasi digital untuk berbagai platform digital</p>
-                <button class="kembali"> kembali </button>
-            </div>
-            <div class="divisi_card" id="techno_icon">
-                <img src="./divisi/design.png" alt="programming icon">
-                <div class="divisi_card_font">
-                    <hr>
-                    <h2><b>DESIGN</b></h2>
-                   <p><a href="./divisi/design.html">Lihat anggota -</a></p>
-                </div>
-            </div>
-            </div>
-            <div class="divisi_total">
-            <div class="card_keterangan">
-                <h2>Technopreneurship</h2>
-                <p>Divisi yang memelajari tentang kewirausahaan teknologi dan pengembangan inovasi berbasis teknologi</p>
-                <button class="kembali"> kembali </button>
-            </div>
-            <div class="divisi_card" id="techno_icon">
-                <img src="./divisi/techno.png" alt="programming icon">
-                <div class="divisi_card_font">
-                    <hr>
-                    <h2><b>TECHNOPRENEURSHIP</b></h2>
-                   <p><a href="./divisi/techno.html">Lihat anggota -</a></p>
-                </div>
-            </div>
-            </div>
+      </div>
+
+      <!-- 2. PHOTOGRAPHY (Baris Atas) -->
+      <div class="divisi_total">
+        <div class="card_keterangan">
+          <h2>Photography</h2>
+          <p>Divisi yang memelajari tentang teknik pengambilan gambar dan editing foto untuk keperluan divisi dan media.</p>
+          <button class="kembali">kembali</button>
         </div>
-    </section>
+        <div class="divisi_card">
+          <img src="./divisi/foto.png" alt="Photography icon">
+          <div class="divisi_card_font">
+            <hr>
+            <h2><b>PHOTOGRAPHY</b></h2>
+            <p><a href="./divisi/foto.html">Lihat anggota -</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CINEMATOGRAPHY (Baris Atas) -->
+      <div class="divisi_total">
+        <div class="card_keterangan">
+          <h2>Cinematography</h2>
+          <p>Divisi yang memelajari tentang teknik perekaman dan pengeditan video untuk keperluan produksi film dan media.</p>
+          <button class="kembali">kembali</button>
+        </div>
+        <div class="divisi_card">
+          <img src="./divisi/cine.png" alt="Cinematography icon">
+          <div class="divisi_card_font">
+            <hr>
+            <h2><b>CINEMATOGRAPHY</b></h2>
+            <p><a href="./divisi/cine.html">Lihat anggota -</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. DESIGN (Baris Bawah) -->
+      <div class="divisi_total">
+        <div class="card_keterangan">
+          <h2>Design</h2>
+          <p>Divisi yang memelajari tentang desain grafis dan ilustrasi digital untuk berbagai platform digital.</p>
+          <button class="kembali">kembali</button>
+        </div>
+        <div class="divisi_card">
+          <img src="./divisi/design.png" alt="Design icon">
+          <div class="divisi_card_font">
+            <hr>
+            <h2><b>DESIGN</b></h2>
+            <p><a href="./divisi/design.html">Lihat anggota -</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. TECHNOPRENEURSHIP (Baris Bawah) -->
+      <div class="divisi_total">
+        <div class="card_keterangan">
+          <h2>Technopreneurship</h2>
+          <p>Divisi yang memelajari tentang kewirausahaan teknologi dan pengembangan inovasi berbasis teknologi.</p>
+          <button class="kembali">kembali</button>
+        </div>
+        <div class="divisi_card">
+          <img src="./divisi/techno.png" alt="Technopreneurship icon">
+          <div class="divisi_card_font">
+            <hr>
+            <h2 class="judul-techno"><b>TECHNOPRENEURSHIP</b></h2>
+            <p><a href="./divisi/techno.html">Lihat anggota -</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <!-- hasil karya -->
  <section class="section section-karya" id="karya">
-  <div class="container">
-    <div class="karya-header">
-      <h2 class="title-lg">Galeri Karya</h2>
+    <div class="judul_section">
+      <div class="pengantar_section pengantar_atas">
+        <hr>
+        <p>our portfolio</p>
+      </div>
+      <h1>HASIL KARYA</h1>
+      <div class="pengantar_section pengantar_bawah">
+        <p>and creations</p>
+        <hr>
+      </div>
     </div>
-    <div class="grid-karya" id="karya-grid"></div>
-  </div>
-</section>
+
+    <div class="container" style="margin-top: 80px;">
+      <div class="grid-karya" id="karya-grid"></div>
+    </div>
+  </section>
 
 <div class="modal-backdrop" id="modal-karya">
   <div class="modal-box">
@@ -230,31 +289,49 @@
 
   </div>
 
-  <!-- FINAL -->
-  <section class="final">
-
-    <div class="final-bg"></div>
-
-    <div class="final-content">
-
-      <div class="final-small">
-        End of the journey
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="./assets/SEputih.png" alt="Logo Saba Exploit">
+          <span>SABA EXPLOIT</span>
+        </div>
+        <p class="footer-desc">
+          Komunitas Teknologi Informasi & Multimedia SMAN 1 Bantul, Yogyakarta. Tempat eksplorasi potensi, inovasi digital, dan kolaborasi karya nyata pelajar.
+        </p>
       </div>
 
-      <h2 class="final-title">
-        <div>WHO</div>
-        <div class="stroke">IS THE</div>
-        <div>NEXT?</div>
-      </h2>
+      <div class="footer-nav-col">
+        <h3 class="footer-title">Navigasi</h3>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#sejarah">Sejarah</a></li>
+          <li><a href="#visi-misi">Visi Misi</a></li>
+          <li><a href="#divisi">Divisi</a></li>
+          <li><a href="#karya">Galeri Karya</a></li>
+        </ul>
+      </div>
 
-      <a href="#" class="final-button">
-        Enter
-        <span>→</span>
-      </a>
-
+      <div class="footer-nav-col">
+        <h3 class="footer-title">Divisi Tim</h3>
+        <ul>
+          <li><a href="./divisi/programming.html">Programming</a></li>
+          <li><a href="./divisi/cine.html">Cinematography</a></li>
+          <li><a href="./divisi/foto.html">Photography</a></li>
+          <li><a href="./divisi/design.html">Design</a></li>
+          <li><a href="./divisi/techno.html">Technopreneurship</a></li>
+        </ul>
+      </div>
     </div>
 
-  </section>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Saba ExploIT — Generasi 20 & 21. SMAN 1 Bantul.</p>
+        <p class="footer-credit">Crafted with passion for school collaboration.</p>
+      </div>
+    </div>
+  </footer>
 
 
   <!-- GSAP & PLUGINS (PENTING: Harus urut!) -->
@@ -317,6 +394,7 @@
       }
     });
 
+    /*
     gsap.to(".hero-image img", {
       scale: 1,
       scrollTrigger: {
@@ -326,6 +404,7 @@
         scrub: 1
       }
     });
+    */
 
     gsap.to(".hero-content", {
       y: -180,
@@ -425,32 +504,6 @@
       }, "<");
 
     /* =========================
-       FINAL SECTION (WHO IS THE NEXT?)
-    ========================= */
-    gsap.from(".final-content", {
-      scale: 0.5,
-      opacity: 0,
-      rotate: -5,
-      scrollTrigger: {
-        trigger: ".final",
-        start: "top 80%",
-        end: "center center",
-        scrub: 1
-      }
-    });
-
-    gsap.to(".final-bg", {
-      rotation: 30,
-      scale: 1.3,
-      scrollTrigger: {
-        trigger: ".final",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 2
-      }
-    });
-
-    /* =========================
        PARALLAX MOUSE
     ========================= */
     document.addEventListener("mousemove", (e) => {
@@ -488,11 +541,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll(`
-        #divisi h1,
-        .pengantar_divisi:first-of-type p,
-        .pengantar_divisi:first-of-type hr,
-        #pengantar_bawah p,
-        #pengantar_bawah hr,
+        .judul_section h1,
+        .pengantar_section p,
+        .pengantar_section hr,
         .divisi_total
     `);
 
@@ -500,13 +551,11 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("in-view");
-
-                // Animasi hanya sekali ketika pertama kali terlihat
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.15
+        threshold: 0.12
     });
 
     elements.forEach((element) => {
