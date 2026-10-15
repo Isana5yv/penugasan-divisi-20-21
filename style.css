@@ -15,9 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ========================a=
-       LOADER
-    ========================= */
+/* LOADER */
 
 .loader {
   position: fixed;
@@ -61,9 +59,7 @@ body {
   }
 }
 
-/* =========================
-       NAVBAR
-    ========================= */
+/* NAVBAR */
 
 nav {
   position: fixed;
@@ -101,9 +97,7 @@ nav {
   letter-spacing: 3px;
 }
 
-/* =========================
-       HERO
-    ========================= */
+/* HERO */
 
 .hero {
   height: 100vh;
@@ -239,10 +233,7 @@ nav {
 }
 
 
-/* =========================
-   INTRO SECTION (Layout Kiri - Kanan)
-========================= */
-
+/* INTRO SECTION */
 .intro {
   min-height: 100vh;
   display: flex;
@@ -328,8 +319,7 @@ nav {
 
 /* =========================
    INTRO SECTION (Modern & Smooth)
-========================= */
-
+*/
 .intro {
   min-height: 100vh;
   display: flex;
@@ -1130,51 +1120,51 @@ nav {
 .divisi_total.active .card_keterangan {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-25px) scale(1);
-  transition:
-    transform 0.5s ease,
-    opacity 0.35s ease,
-    visibility 0s;
-  pointer-events: auto;
+transform: translateX(-25px) scale(1);
+transition:
+  transform 0.5s ease,
+  opacity 0.35s ease,
+  visibility 0s;
+pointer-events: auto;
 }
 
 .card_keterangan button {
-  background-color: rgba(255, 30, 30, 0.29);
-  border-radius: 12px;
-  width: 50%;
-  font-size: 1em;
-  padding: 5px;
-  color: white;
+background-color: rgba(255, 30, 30, 0.29);
+border-radius: 12px;
+width: 50%;
+font-size: 1em;
+padding: 5px;
+color: white;
 }
 
 .divisi_card:hover {
-  transform: translateY(-8px);
-  /* Kartu sedikit naik ke atas */
-  border-color: #ff1e1e;
-  /* Border berubah jadi warna aksen merah */
-  box-shadow: inset -26px 16px 100px -32px rgba(255, 50, 50, 0.3),
-    0 12px 30px rgba(255, 30, 30, 0.15);
+transform: translateY(-8px);
+/* Kartu sedikit naik ke atas */
+border-color: #ff1e1e;
+/* Border berubah jadi warna aksen merah */
+box-shadow: inset -26px 16px 100px -32px rgba(255, 50, 50, 0.3),
+  0 12px 30px rgba(255, 30, 30, 0.15);
 }
 
 #divisi a {
-  color: rgb(255, 255, 255, 0.7);
-  border-bottom: none;
+color: rgb(255, 255, 255, 0.7);
+border-bottom: none;
 }
 
 @keyframes cardFadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+from {
+  opacity: 0;
+}
 
-  to {
-    opacity: 1;
+to {
+  opacity: 1;
   }
 }
 
