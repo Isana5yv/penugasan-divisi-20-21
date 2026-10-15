@@ -8,7 +8,7 @@ html {
   scroll-behavior: auto;
 }
 
-/* Pastikan body menggunakan clip agar sticky/fixed tidak terpotong */
+
 body {
   background: #080808;
   color: white;
@@ -60,9 +60,7 @@ body {
   }
 }
 
-/* =========================
-   NAVBAR (Sticky / Fixed & Centered)
-========================= */
+/* NAVBAR */
 nav.navbar {
   position: fixed; /* Selalu mengambang di atas saat discroll */
   top: 0;
@@ -106,7 +104,6 @@ nav.navbar {
   color: #ffffff;
 }
 
-/* Kunci Menu Tepat di Tengah Layar Desktop */
 .nav-links {
   position: absolute;
   left: 50%;
@@ -149,7 +146,6 @@ nav.navbar {
   width: 100%;
 }
 
-/* Responsif Layar Kecil */
 @media (max-width: 860px) {
   .nav-links {
     display: none;
@@ -332,7 +328,6 @@ nav.navbar {
   }
 }
 
-/* Terapkan animasi ke gambar di section intro */
 .intro-image img {
   width: 100%;
   max-width: 380px;
@@ -340,7 +335,6 @@ nav.navbar {
   object-fit: contain;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
   
-  /* Tambahkan baris ini */
   animation: goyang 3s ease-in-out infinite;
 }
 
@@ -350,7 +344,6 @@ nav.navbar {
   text-align: left;
   /* Rata kiri */
   font-family: "Inter", sans-serif;
-  /* Menggunakan font biasa/Inter */
   font-size: clamp(24px, 3.5vw, 48px);
   font-weight: 500;
   line-height: 1.4;
@@ -377,9 +370,7 @@ nav.navbar {
   }
 }
 
-/* =========================
-   INTRO SECTION (Modern & Smooth)
-*/
+/* INTRO SECTION */
 .intro {
   min-height: 100vh;
   display: flex;
@@ -405,10 +396,8 @@ nav.navbar {
   text-align: left;
   font-family: "Inter", sans-serif;
   font-size: clamp(18px, 1.6vw, 24px);
-  /* Ukuran teks lebih proporsional & rapi */
   font-weight: 400;
   line-height: 1.8;
-  /* Jarak antar baris yang nyaman dibaca */
   color: #e0e0e0;
   position: relative;
 }
@@ -417,7 +406,6 @@ nav.navbar {
   display: inline;
 }
 
-/* Kursor Animasi Mengetik */
 .cursor-type {
   font-weight: 300;
   color: #ff4655;
@@ -724,9 +712,7 @@ nav.navbar {
   color: #ff4655;
 }
 
-/* =========================
-       MARQUEE
-    ========================= */
+/* MARQUEE*/
 
 .marquee {
   background: #ff4655;
@@ -755,9 +741,7 @@ nav.navbar {
   }
 }
 
-/* =========================
-       CURSOR
-    ========================= */
+/* CURSOR */
 
 .cursor {
   position: fixed;
@@ -774,10 +758,6 @@ nav.navbar {
     background .2s;
   mix-blend-mode: difference;
 }
-
-/* =========================
-       RESPONSIVE
-    ========================= */
 
 @media (max-width: 768px) {
 
@@ -836,21 +816,21 @@ nav.navbar {
   padding-top: 180px;
 }
 
-/* Mengubah susunan baris agar 3 kartu di atas dan 2 kartu di bawah (tengah) */
+/* usunan baris */
 #divisi .divisi_wrap {
   display: flex;
-  flex-wrap: wrap;          /* Mengubah dari wrap-reverse ke wrap biasa */
+  flex-wrap: wrap;      
   gap: 50px;
   width: 90%;
-  max-width: 1060px;        /* Membatasi lebar agar persis 3 kartu di baris pertama */
+  max-width: 1060px;       
   align-items: center;
-  justify-content: center;  /* Memusatkan 2 kartu di baris kedua secara simetris */
+  justify-content: center;  
   margin: auto;
   margin-top: 120px;
   text-align: center;
 }
 
-/* Standarisasi ukuran judul dalam kartu divisi */
+
 .divisi_card_font h2 {
   font-family: "Inter", sans-serif;
   font-size: 1.15rem;
@@ -859,10 +839,9 @@ nav.navbar {
   color: #ffffff;
 }
 
-/* Khusus font TECHNOPRENEURSHIP diperkecil agar pas di dalam kartu */
 .divisi_card_font .judul-techno {
-  font-size: 0.92rem;       /* Ukuran pas untuk kata 17 huruf */
-  letter-spacing: -0.2px;   /* Mengurangi jarak antar huruf */
+  font-size: 0.92rem;       
+  letter-spacing: -0.2px;   
   white-space: nowrap;
 }
 
@@ -919,8 +898,8 @@ nav.navbar {
 
 .pengantar_divisi:first-of-type p {
   opacity: 0;
-  /*
-    animation-delay: 0.2s;*/
+/*   
+    animation-delay: 0.2s; */
 }
 
 .pengantar_divisi:first-of-type p.in-view {
@@ -940,15 +919,32 @@ nav.navbar {
 }
 
 .pengantar_divisi p {
-  font-size: 2em;
+  font-size: clamp(14px, 2.2vw, 32px);
+  letter-spacing: clamp(2px, 0.8vw, 10px);
   font-weight: 400;
-  letter-spacing: 10px;
   color: #ff1e1e;
   margin: 0;
 }
 
+
+#divisi h1 {
+  font-size: clamp(48px, 12vw, 180px);
+  width: 100%;
+  height: auto;
+  font-weight: 800;
+  line-height: 90px;
+
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(20px);
+}
+
+#divisi h1.in-view {
+  animation: blurSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .judul_divisi {
-  width: 50%;
+  width: min(80%, 1000px);
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -996,6 +992,36 @@ nav.navbar {
   background-color: #ff1e1e;
 }
 
+@media (max-width: 480px) {
+  .judul_divisi {
+    width: 92%;
+    gap: 22px;
+  }
+
+  #divisi .judul_divisi hr {
+    height: 2px;
+    margin-top: 8px;
+  }
+
+  .pengantar_divisi {
+    gap: 8px;
+  }
+
+  .pengantar_divisi p {
+    font-size: clamp(12px, 3.5vw, 16px);
+    letter-spacing: 2px;
+  }
+
+  #divisi h1 {
+    font-size: clamp(42px, 13vw, 64px);
+    line-height: 1;
+  }
+
+  #pengantar_bawah p {
+    transform: translateX(30px);
+  }
+}
+
 #pengantar_bawah hr.in-view {
   animation: expandLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
@@ -1038,8 +1064,8 @@ nav.navbar {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /*width: 350px;
-        height: 420px;*/
+  /* width: 350px;
+        height: 420px; */
   background-color: rgb(128, 128, 128, 0.2);
   border-radius: 12px;
   border: 2px solid grey;
@@ -1071,7 +1097,6 @@ nav.navbar {
   box-shadow: 0px 10px 40px -5px rgba(255, 30, 30, 0.29);
 }
 
-/* Keterangan muncul dari belakang */
 .divisi_total.active .card_keterangan {
   opacity: 1;
   visibility: visible;
@@ -1094,9 +1119,7 @@ color: white;
 
 .divisi_card:hover {
 transform: translateY(-8px);
-/* Kartu sedikit naik ke atas */
 border-color: #ff1e1e;
-/* Border berubah jadi warna aksen merah */
 box-shadow: inset -26px 16px 100px -32px rgba(255, 50, 50, 0.3),
   0 12px 30px rgba(255, 30, 30, 0.15);
 }
@@ -1130,7 +1153,6 @@ to {
 
   to {
     width: 120px;
-    /* Atur panjang garis di sini */
   }
 }
 
@@ -1149,9 +1171,7 @@ to {
   }
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 .site-footer {
   background: #050505;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1247,13 +1267,7 @@ to {
   font-size: 0.85rem;
 }
 
-.footer-credit {
-  font-family: monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-}
 
-/* RESPONSIVE FOOTER */
 @media (max-width: 900px) {
   .footer-content {
     grid-template-columns: 1fr;
@@ -1267,14 +1281,12 @@ to {
   }
 }
 
-/* =========================
-   VISI & MISI (Dina)
-========================= */
+/* VISI  MISI  */
 .section-visi-misi {
   width: 100%;
   padding: 120px 0 80px;
   background: #080808;
-  scroll-margin-top: 70px; /* Jarak aman agar judul tidak tertutup navbar sticky */
+  scroll-margin-top: 70px;
 }
 
 .visi-misi-wrap {
@@ -1329,7 +1341,7 @@ to {
   font-style: italic;
 }
 
-/* Responsif Mobile & Tablet */
+
 @media (max-width: 768px) {
   .visi-misi-wrap {
     flex-direction: column;
@@ -1344,9 +1356,7 @@ to {
   }
 }
 
-/* ========================================================
-   STANDARISASI JUDUL SEMUA SECTION (Persis seperti Divisi)
-======================================================== */
+/*  JUDUL bagian */
 .judul_section {
   width: 90%;
   max-width: 950px;
@@ -1359,7 +1369,6 @@ to {
   text-align: center;
 }
 
-/* Format Baris Pengantar Merah */
 .pengantar_section {
   display: flex;
   width: 100%;
@@ -1367,7 +1376,6 @@ to {
   gap: 25px;
 }
 
-/* Pengantar Atas: Garis di kiri, teks di kanan garis */
 .pengantar_atas {
   justify-content: flex-start;
   text-align: left;
@@ -1392,7 +1400,6 @@ to {
   animation: expandLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* Pengantar Bawah: Teks di kiri, garis di kanan */
 .pengantar_bawah {
   justify-content: flex-end;
   text-align: right;
@@ -1418,7 +1425,6 @@ to {
   animation: expandLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* Teks Pengantar Merah */
 .pengantar_section p {
   font-family: "Inter", sans-serif;
   font-size: clamp(1.2rem, 2.2vw, 2rem);
@@ -1430,7 +1436,7 @@ to {
   white-space: nowrap;
 }
 
-/* JUDUL UTAMA BESAR DI TENGAH (SEJARAH, VISI & MISI, DIVISION, HASIL KARYA) */
+/* JUDUL UTAMA */
 .judul_section h1 {
   font-family: "Inter", sans-serif;
   font-size: clamp(34px, 4.5vw, 56px);
@@ -1452,7 +1458,6 @@ to {
   animation: blurSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Penyesuaian Layout Section Intro/Sejarah agar Judul di Atas Konten */
 .intro {
   min-height: 100vh;
   display: flex;
@@ -1464,7 +1469,6 @@ to {
   gap: 80px;
 }
 
-/* Jarak Scroll Aman saat Navigasi Navbar Diklik */
 #sejarah,
 #visi-misi,
 #divisi,
@@ -1472,7 +1476,6 @@ to {
   scroll-margin-top: 90px;
 }
 
-/* Penyesuaian Section Karya */
 .section-karya {
   padding-top: 130px;
   padding-bottom: 120px;

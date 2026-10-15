@@ -24,7 +24,7 @@ const dataKarya = [
   {
     id: 4,
     title: "Mata Uang Zaman Dulu",
-    shortDesc: "Mata uang yang terbit pada zaman penjajahan jepang.",
+    shortDesc: "Mata uang yang terbit pada zaman penjajahan Jepang.",
     fullDesc: "Mata uang ini dikeluarkan pada tahun 1943 yang diterbitkan oleh pemerintah militer Jepang semasa menduduki wilayah Indonesia. Penulisan uang kertas tersebut menggunakan aksara Latin yang bertuliskan Dai Nippon Teikoku Seihu yang terlihat jelas di bagian tengah uang.",
     img: "assets/gambar-karya/karya4.jpg"
   },
