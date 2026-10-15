@@ -8,11 +8,12 @@ html {
   scroll-behavior: auto;
 }
 
+/* Pastikan body menggunakan clip agar sticky/fixed tidak terpotong */
 body {
   background: #080808;
   color: white;
   font-family: "Inter", sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* LOADER */
@@ -59,43 +60,102 @@ body {
   }
 }
 
-/* NAVBAR */
-
-nav {
-  position: fixed;
+/* =========================
+   NAVBAR (Sticky / Fixed & Centered)
+========================= */
+nav.navbar {
+  position: fixed; /* Selalu mengambang di atas saat discroll */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  padding: 25px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  mix-blend-mode: difference;
+  z-index: 1000;
+  padding: 16px 0;
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.logo {
+.nav-container {
+  width: 92%;
+  max-width: 1300px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  z-index: 2;
 }
 
 .nav-logo-img {
-  width: 45px;
-  /* Atur lebar logo (sesuai selera) */
-  height: 45px;
-  /* Atur tinggi logo */
-  object-fit: cover;
-  /* Agar gambar tidak terdistorsi */
-  border-radius: 8px;
-  /* Opsional: memberi sedikit lengkungan sudut */
-  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
 }
 
-.nav-right {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
+.nav-logo-text {
+  font-family: "Anton", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: #ffffff;
 }
+
+/* Kunci Menu Tepat di Tengah Layar Desktop */
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #a0a4ad;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #ff4655;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff4655;
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Responsif Layar Kecil */
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+  }
+}
+
 
 /* HERO */
 
@@ -696,82 +756,6 @@ nav {
 }
 
 /* =========================
-       FINAL SECTION
-    ========================= */
-
-.final {
-  height: 130vh;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 70, 85, .3),
-      transparent 45%),
-    #050505;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.final-bg {
-  position: absolute;
-  inset: -20%;
-  background:
-    repeating-linear-gradient(120deg,
-      transparent 0,
-      transparent 40px,
-      rgba(255, 255, 255, .03) 41px);
-  transform: rotate(10deg);
-}
-
-.final-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-.final-small {
-  font-size: 11px;
-  letter-spacing: 8px;
-  color: #ff4655;
-  margin-bottom: 25px;
-}
-
-.final-title {
-  font-family: "Anton", sans-serif;
-  font-size: clamp(90px, 18vw, 300px);
-  line-height: .72;
-  text-transform: uppercase;
-}
-
-.final-title .stroke {
-  color: transparent;
-  -webkit-text-stroke: 2px white;
-}
-
-.final-button {
-  margin-top: 60px;
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  padding: 18px 35px;
-  border: 1px solid rgba(255, 255, 255, .5);
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 11px;
-  transition: .4s;
-}
-
-.final-button:hover {
-  background: #ff4655;
-  border-color: #ff4655;
-  color: #080808;
-  transform: scale(1.05);
-}
-
-/* =========================
        CURSOR
     ========================= */
 
@@ -852,16 +836,34 @@ nav {
   padding-top: 180px;
 }
 
+/* Mengubah susunan baris agar 3 kartu di atas dan 2 kartu di bawah (tengah) */
 #divisi .divisi_wrap {
   display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 70px;
+  flex-wrap: wrap;          /* Mengubah dari wrap-reverse ke wrap biasa */
+  gap: 50px;
   width: 90%;
+  max-width: 1060px;        /* Membatasi lebar agar persis 3 kartu di baris pertama */
   align-items: center;
-  justify-content: center;
+  justify-content: center;  /* Memusatkan 2 kartu di baris kedua secara simetris */
   margin: auto;
-  margin-top: 200px;
+  margin-top: 120px;
   text-align: center;
+}
+
+/* Standarisasi ukuran judul dalam kartu divisi */
+.divisi_card_font h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Khusus font TECHNOPRENEURSHIP diperkecil agar pas di dalam kartu */
+.divisi_card_font .judul-techno {
+  font-size: 0.92rem;       /* Ukuran pas untuk kata 17 huruf */
+  letter-spacing: -0.2px;   /* Mengurangi jarak antar huruf */
+  white-space: nowrap;
 }
 
 .divisi_card {
@@ -943,23 +945,6 @@ nav {
   letter-spacing: 10px;
   color: #ff1e1e;
   margin: 0;
-}
-
-
-#divisi h1 {
-  font-size: clamp(70px, 12vw, 180px);
-  width: 580px;
-  height: 90px;
-  font-weight: 800;
-  line-height: 90px;
-
-  opacity: 0;
-  filter: blur(12px);
-  transform: translateY(20px);
-}
-
-#divisi h1.in-view {
-  animation: blurSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .judul_divisi {
@@ -1162,4 +1147,361 @@ to {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  background: #050505;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 60px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.footer-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-logo span {
+  font-family: "Anton", sans-serif;
+  font-size: 1.4rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.footer-desc {
+  color: #8e929b;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 440px;
+}
+
+.footer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.footer-title::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #ff4655;
+  margin-top: 8px;
+}
+
+.footer-nav-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav-col ul li a {
+  text-decoration: none;
+  color: #8e929b;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.footer-nav-col ul li a:hover {
+  color: #ff4655;
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px 0;
+  background: #020202;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555962;
+  font-size: 0.85rem;
+}
+
+.footer-credit {
+  font-family: monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* =========================
+   VISI & MISI (Dina)
+========================= */
+.section-visi-misi {
+  width: 100%;
+  padding: 120px 0 80px;
+  background: #080808;
+  scroll-margin-top: 70px; /* Jarak aman agar judul tidak tertutup navbar sticky */
+}
+
+.visi-misi-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  width: 90%;
+  max-width: 900px;
+  margin: 80px auto 0;
+}
+
+.vm-box {
+  flex: 1;
+  min-width: 280px;
+  max-width: 420px;
+  background-color: #101010;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: inset -10px 10px 80px -20px rgba(255, 50, 50, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vm-box:hover {
+  transform: translateY(-6px);
+  border-color: #ff1e1e;
+  box-shadow: inset -10px 10px 80px -20px rgba(255, 50, 50, 0.25), 0 10px 25px rgba(255, 30, 30, 0.15);
+}
+
+.vm-box h2 {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  color: #ffffff;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #ff1e1e;
+  padding-bottom: 10px;
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+}
+
+.vm-box p {
+  color: #d1d5db;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsif Mobile & Tablet */
+@media (max-width: 768px) {
+  .visi-misi-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .vm-box {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ========================================================
+   STANDARISASI JUDUL SEMUA SECTION (Persis seperti Divisi)
+======================================================== */
+.judul_section {
+  width: 90%;
+  max-width: 950px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+}
+
+/* Format Baris Pengantar Merah */
+.pengantar_section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Pengantar Atas: Garis di kiri, teks di kanan garis */
+.pengantar_atas {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.pengantar_atas p {
+  opacity: 0;
+}
+
+.pengantar_atas p.in-view {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.pengantar_atas hr {
+  width: 0;
+  border: none;
+  height: 2px;
+  background-color: #ff1e1e;
+}
+
+.pengantar_atas hr.in-view {
+  animation: expandLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Pengantar Bawah: Teks di kiri, garis di kanan */
+.pengantar_bawah {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.pengantar_bawah p {
+  opacity: 0;
+  transform: translateX(70px);
+}
+
+.pengantar_bawah p.in-view {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.pengantar_bawah hr {
+  width: 0;
+  border: none;
+  height: 2px;
+  background-color: #ff1e1e;
+}
+
+.pengantar_bawah hr.in-view {
+  animation: expandLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Teks Pengantar Merah */
+.pengantar_section p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: #ff1e1e;
+  margin: 0;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+/* JUDUL UTAMA BESAR DI TENGAH (SEJARAH, VISI & MISI, DIVISION, HASIL KARYA) */
+.judul_section h1 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -2px;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 10px auto;
+  width: 100%;
+  display: block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(20px);
+}
+
+.judul_section h1.in-view {
+  animation: blurSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Penyesuaian Layout Section Intro/Sejarah agar Judul di Atas Konten */
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 8vw 100px;
+  background: #080808;
+  gap: 80px;
+}
+
+/* Jarak Scroll Aman saat Navigasi Navbar Diklik */
+#sejarah,
+#visi-misi,
+#divisi,
+#karya {
+  scroll-margin-top: 90px;
+}
+
+/* Penyesuaian Section Karya */
+.section-karya {
+  padding-top: 130px;
+  padding-bottom: 120px;
+}
+
+button:has(a) {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 999;
+    background: rgba(163, 48, 48, 0.35);
+    border: 1px solid rgba(255, 70, 85, 0.4);
+    border-radius: 8px;
+    padding: 8px 18px;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+}
+
+button:has(a):hover {
+    background: #ff4655;
+    border-color: #ff4655;
+    transform: translateY(-2px);
+}
+
+button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
